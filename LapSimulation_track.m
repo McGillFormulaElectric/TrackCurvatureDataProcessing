@@ -3,20 +3,21 @@
 
 load('Lincoln2016_Endurance.mat')
 % load('track_FSG_2013.mat')
-for x = 1:length(GPS_Latitude.Value - 3)
+% for x = 1:(length(GPS_Latitude.Value) - 3)
+x = 1:(length(GPS_Latitude.Value) - 3);
 
     % Get lengths between points
-a(x) = sqrt( (GPS_Latitude.Value(x+1) - GPS_Latitude.Value(x))^2 + (GPS_Longitude.Value(x+1) - GPS_Longitude.Value(x))^2); 
-b(x) = sqrt( (GPS_Latitude.Value(x+2) - GPS_Latitude.Value(x+1))^2 + (GPS_Longitude.Value(x+2) - GPS_Longitude.Value(x+1))^2);
-c(x) = sqrt( (GPS_Latitude.Value(x+3) - GPS_Latitude.Value(x+2))^2 + (GPS_Longitude.Value(x+3) - GPS_Longitude.Value(x+2))^2);
+a = sqrt( (GPS_Latitude.Value(x+1) - GPS_Latitude.Value(x)).^2 + (GPS_Longitude.Value(x+1) - GPS_Longitude.Value(x)).^2); 
+b = sqrt( (GPS_Latitude.Value(x+2) - GPS_Latitude.Value(x+1)).^2 + (GPS_Longitude.Value(x+2) - GPS_Longitude.Value(x+1)).^2);
+c = sqrt( (GPS_Latitude.Value(x+3) - GPS_Latitude.Value(x+2)).^2 + (GPS_Longitude.Value(x+3) - GPS_Longitude.Value(x+2)).^2);
 
     % Get Angles
-A(x) = acos( (b(x)^2 + c(x)^2 + a(x)^2)/(2*b(x)*c(x)));
+A = acos( (b(x).^2 + c(x).^2 + a(x).^2)./(2*b(x).*c(x)));
 
     % Get radii
-Radius(x) = a(x)/(2*sin(180 - A(x))); 
+Radius = a(x)./(2*sin(180 - A(x))); 
 
-end
+% end
 
 %% Build Working Track Variables 
 
