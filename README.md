@@ -19,4 +19,4 @@ t.Y = yPoints ;
 track = t.createTrack ;
 
 7) a figure will be generated with calculated instantaneous radius and smoothed radius. If results 
-are satisfactory save the track, try using a different filter parameter
+are satisfactory save the track, otherwise try using a different filter parameter
