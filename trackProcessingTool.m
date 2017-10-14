@@ -14,7 +14,7 @@ classdef trackProcessingTool
         numberLaps
         % optional
         units char {mustBeMember(units,...
-            {'m', 'ft', 'km', ''})} = ''
+            {'m', 'ft', 'km', 'in', ''})} = ''
         
         % might have to play around with this parameter in order to get desired
         % smoothing
